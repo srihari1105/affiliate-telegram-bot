@@ -414,6 +414,13 @@ async def generate_message(update, context):
             print(f"Failed to send to {chat_id}:", e)
 
     await update.message.reply_text("✅ Message sent to all channels!")
+    
+#------------------------------
+#/ ping func
+#------------------------------
+
+async def ping(update, context):
+    await update.message.reply_text("Bot is alive ✅")
             
 # ------------------------------
 # RUN BOT
@@ -430,6 +437,7 @@ app.add_handler(CommandHandler("add_user", add_user))
 app.add_handler(CommandHandler("remove_user", remove_user))
 
 #filter last lo vundali 
+app.add_handler(CommandHandler("ping", ping))
 app.add_handler(MessageHandler(filters.ALL, save_chat))
 
 print("Bot running... 🚀")
